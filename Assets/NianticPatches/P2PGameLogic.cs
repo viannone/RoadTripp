@@ -16,7 +16,12 @@ using Niantic.ARDK.Utilities.Input.Legacy;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
+using RoadTripp;
 
+
+/*
+ * This is a proprietary fix from Niantic's forums. I'm only using it here for testing.
+ */
 public class P2PGameLogic : MonoBehaviour
 {
 
@@ -289,7 +294,7 @@ public class P2PGameLogic : MonoBehaviour
         // ...then, take note of the player identifier...
         System.Guid playerIdentifier = args.Peer.Identifier;
 
-        BarkSingleton.Bark("THIS WORKED! " + (string)GlobalSerializer.Deserialize(memoryStream) + " " + playerIdentifier.ToString() );
+        BarkSingleton.BarkText("THIS WORKED! " + (string)GlobalSerializer.Deserialize(memoryStream) + " " + playerIdentifier.ToString() );
 
         switch (args.Tag)
         {

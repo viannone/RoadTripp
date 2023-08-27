@@ -27,12 +27,13 @@ namespace RoadTripp
                 Debug.LogError("Semantic Test not set up properly.");
                 return;
             }
-            _semanticManager.SemanticBufferUpdated += OnSemanticBufferUpdated;
+           // _semanticManager.SemanticBufferUpdated += OnSemanticBufferUpdated;
         }
 
-        private void OnSemanticBufferUpdated(ContextAwarenessStreamUpdatedArgs<ISemanticBuffer> args)
+        //cleanup
+        private void OnDestroy()
         {
-
+            //_semanticManager.SemanticBufferUpdated -= OnSemanticBufferUpdated;
         }
 
 
@@ -50,7 +51,7 @@ namespace RoadTripp
                 string[] channelsInTouch = _semanticManager.SemanticBufferProcessor.GetChannelNamesAt((int)touch.position.x, (int)touch.position.y);
                 foreach(var s in channelsInTouch)
                 {
-                    BarkSingleton.Bark("Touch Registered: " + s);
+                    BarkSingleton.BarkText("Touch Registered: " + s);
                 }
             }
         }
