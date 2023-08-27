@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 using RoadTripp;
-
+using RoadTripp.Debugging;
 
 /*
  * This is a proprietary fix from Niantic's forums. I'm only using it here for testing.

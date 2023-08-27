@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using RoadTripp.Debugging;
+
 namespace RoadTripp
 {
     public class MapAvatarManager : MonoBehaviour

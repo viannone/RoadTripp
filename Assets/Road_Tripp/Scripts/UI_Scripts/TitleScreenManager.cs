@@ -37,12 +37,17 @@ namespace RoadTripp
         //Accessed from OnClick() button, set in inspector
         public void PlayGame()
         {
-            SceneManager.LoadScene( GameConstants.PlaySceneName, LoadSceneMode.Single); //Single is fine for our purposes
+            SceneManager.LoadScene(GameConstants.PlaySceneName, LoadSceneMode.Single); //Single is fine for our purposes
         }
 
         public void MapScreen()
         {
             SceneManager.LoadScene(GameConstants.MapSceneName, LoadSceneMode.Single);
+        }
+
+        public void Quit()
+        {
+            Application.Quit();
         }
     }
 }

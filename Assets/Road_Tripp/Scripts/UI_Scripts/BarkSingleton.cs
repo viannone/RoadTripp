@@ -8,7 +8,7 @@ using Lean.Transition;
  * Singleton for debugging messages.
  * In a real game, this would be replaced with a more robust system.
  */
-namespace RoadTripp
+namespace RoadTripp.Debugging
 {
     public class BarkSingleton : MonoBehaviour
     {

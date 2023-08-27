@@ -9,6 +9,8 @@ using Niantic.ARDK.Utilities.BinarySerialization;
 using System.IO;
 using System.Linq;
 
+using RoadTripp.Debugging;
+
 namespace RoadTripp
 {
     public class GameManager : MonoBehaviour

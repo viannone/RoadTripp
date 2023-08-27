@@ -21,7 +21,7 @@ namespace Niantic.Lightship.Maps.SampleAssets.Player
     public class PlayerLocationController : MonoBehaviour
     {
         [SerializeField]
-        private LightshipMapView _lightshipMapView;
+        protected LightshipMapView _lightshipMapView;
 
         [SerializeField]
         private float _editorMovementSpeed;
@@ -33,17 +33,18 @@ namespace Niantic.Lightship.Maps.SampleAssets.Player
         private PlayerModel _model;
 
         private double _lastGpsUpdateTime;
-        private Vector3 _targetMapPosition;
-        private Vector3 _currentMapPosition;
+        protected Vector3 _targetMapPosition;
+        protected Vector3 _currentMapPosition;
         private float _lastMapViewUpdateTime;
+        public LatLng _currentPlayerLatLong;
 
         /// <summary>
         /// Event to notify the UI about any issues with the GPS location
         /// </summary>
         public Action<string> OnGpsError;
 
-        private const float WalkThreshold = 0.5f;
-        private const float TeleportThreshold = 200f;
+        protected const float WalkThreshold = 0.5f;
+        protected const float TeleportThreshold = 200f;
 
         private static bool IsLocationServiceInitializing
             => Input.location.status == LocationServiceStatus.Initializing;
@@ -145,10 +146,11 @@ namespace Niantic.Lightship.Maps.SampleAssets.Player
         {
             // New GPS location data available, will lerp the player's
             // position to this new coordinate, or jump if it is far.
+            _currentPlayerLatLong = location;
             _targetMapPosition = _lightshipMapView.LatLngToScene(location);
         }
 
-        public void Update()
+        public virtual void Update()
         {
             // Update the map view position based on where our player is.
             // This will actually be last frame's position, but the map
@@ -220,10 +222,11 @@ namespace Niantic.Lightship.Maps.SampleAssets.Player
             float yRotation = Vector3.SignedAngle(Vector3.forward, cameraForward, Vector3.up);
             movementVector = Quaternion.AngleAxis(yRotation, Vector3.up) * movementVector;
 
+            _currentPlayerLatLong = _lightshipMapView._defaultLocation; //hard set this in editor
             _targetMapPosition += movementVector * (_editorMovementSpeed * Time.deltaTime);
         }
 
-        private void UpdateMapViewPosition()
+        protected void UpdateMapViewPosition()
         {
             // Only update the map tile view periodically so as not to spam tile fetches
             if (Time.time < _lastMapViewUpdateTime + 1.0f)

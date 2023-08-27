@@ -80,7 +80,7 @@ namespace Niantic.Lightship.Maps
         [Tooltip("The default starting location, if 'Start At Default Location' is set.")]
         [SerializeField]
         [DisabledIfFalse(nameof(_startAtDefaultLocation))]
-        private SerializableLatLng _defaultLocation;
+        public SerializableLatLng _defaultLocation;
 
         [Tooltip("A list of prefabs or GameObjects containing MapLayer components " +
             "that are used while constructing the map view.  These are typically " +

@@ -5,6 +5,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using RoadTripp.Debugging;
+
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.AR.Awareness;
 using Niantic.ARDK.AR.Awareness.Semantics;
@@ -13,8 +15,6 @@ namespace RoadTripp
 {
     public class SemanticTest : MonoBehaviour
     {
-
-        ISemanticBuffer _currentBuffer;
 
         public ARSemanticSegmentationManager _semanticManager;
         public Camera _camera; //cached ref
@@ -27,6 +27,7 @@ namespace RoadTripp
                 Debug.LogError("Semantic Test not set up properly.");
                 return;
             }
+            //TODO: Add gameplay elements with semantic buffer
            // _semanticManager.SemanticBufferUpdated += OnSemanticBufferUpdated;
         }
 

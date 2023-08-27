@@ -1,0 +1,22 @@
+{
+    "name": "RoadTrip",
+    "rootNamespace": "RoadTripp",
+    "references": [
+        "GUID:616a9df7195fa4065a0deb0482edf468",
+        "GUID:f3cc28278c88a4b43ae1ec99ea44ed56",
+        "GUID:45a8948d779714135814fc726b8d219f",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:82c7e6eac44d7e048b22ad98800dcfc7",
+        "GUID:cc9b1dbcea8af584ba492afeb67a12da",
+        "GUID:cd55ca69ae54cfd4fb8de36a2c50c583"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
