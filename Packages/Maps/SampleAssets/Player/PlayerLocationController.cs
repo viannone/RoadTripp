@@ -190,7 +190,7 @@ namespace Niantic.Lightship.Maps.SampleAssets.Player
                 Time.deltaTime);
 
             transform.position = _currentMapPosition;
-            _model.UpdatePlayerState(movementDistance);
+            //_model.UpdatePlayerState(movementDistance);
         }
 
         private void UpdateEditorInput()
@@ -222,7 +222,6 @@ namespace Niantic.Lightship.Maps.SampleAssets.Player
             float yRotation = Vector3.SignedAngle(Vector3.forward, cameraForward, Vector3.up);
             movementVector = Quaternion.AngleAxis(yRotation, Vector3.up) * movementVector;
 
-            _currentPlayerLatLong = _lightshipMapView._defaultLocation; //hard set this in editor
             _targetMapPosition += movementVector * (_editorMovementSpeed * Time.deltaTime);
         }
 

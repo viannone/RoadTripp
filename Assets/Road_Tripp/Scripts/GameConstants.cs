@@ -7,6 +7,6 @@ namespace RoadTripp
     public class GameConstants
     {
         public const string PlaySceneName = "GameplayScene";
-        public const string MapSceneName = "Map";
+        public const string MapSceneName = "MapScene";
     }
 }

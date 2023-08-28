@@ -19,7 +19,7 @@ namespace RoadTripp
     {
         public GameObject playerPrefab;
 
-        public override void Update()
+        public virtual void Update()
         {
             // Update the map view position based on where our player is.
             // This will actually be last frame's position, but the map
@@ -58,10 +58,8 @@ namespace RoadTripp
                 _targetMapPosition,
                 Time.deltaTime);
 
-            if (playerPrefab)
-            {
-                playerPrefab.transform.position = _targetMapPosition;
-            }
+            transform.position = _currentMapPosition;
+            //_model.UpdatePlayerState(movementDistance);
         }
     }
 }
