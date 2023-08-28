@@ -65,10 +65,11 @@ namespace RoadTripp.Debugging
 
                 //The following should only happen once during the entire game
                 var gameObject = GameObject.FindGameObjectWithTag(barkSingleton); 
-                instance = gameObject.GetComponent<BarkSingleton>();
+                instance = gameObject?.GetComponent<BarkSingleton>();
                 if (instance == null) //still null? This shouldn't happen
                 {
                     Debug.LogError("Couldn't Find Bark Singleton In Scene");
+                    Debug.LogError("Bark Message: " + str);
                     return;
                 }
                 Initialize(instance);

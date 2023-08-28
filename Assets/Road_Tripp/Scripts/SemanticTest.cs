@@ -37,12 +37,16 @@ namespace RoadTripp
 
         void Update()
         {
+            if(remainingTime <= 0.0f)
+            {
+                return;//early out here first, so if we exit out of the scene and Update is still running, it'll short circuit
+            }
             remainingTime -= Time.deltaTime;
             clock.text = TimeSpan.FromSeconds(remainingTime).ToString(@"mm\:ss");
-            if (remainingTime <= 0)
+            if (remainingTime <= 0.0f)
             {
-                PlayerDataManager.Lose();
-                return;
+                PlayerDataManager.Lose();//only fire the Lose() function the first time we cross the negative threshold
+                return;//early out here as well, both are necessary
             }
             var touches = PlatformAgnosticInput.touchCount;
             if (touches <= 0)
@@ -60,7 +64,10 @@ namespace RoadTripp
                 }
                 else if(channelsInTouch.Contains(_listenToChannel))
                 {
-                    PlayerDataManager.Win();   
+                    BarkSingleton.BarkText("Mission Accomplished!");
+                    PlayerDataManager.Win();
+                    remainingTime = -1.0f;
+                    return;
                 }
                 else
                 {

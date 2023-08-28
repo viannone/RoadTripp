@@ -29,8 +29,8 @@ namespace Niantic.Lightship.Maps.SampleAssets.Player
         [SerializeField]
         private Camera _camera;
 
-        [SerializeField]
-        private PlayerModel _model;
+        //[SerializeField]
+        //private PlayerModel _model;
 
         private double _lastGpsUpdateTime;
         protected Vector3 _targetMapPosition;

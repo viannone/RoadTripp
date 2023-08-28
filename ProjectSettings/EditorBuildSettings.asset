@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/Road_Tripp/Scenes/OpeningScene.unity
     guid: e2643901704432949b876b930f860e4e
   - enabled: 1
+    path: Assets/Road_Tripp/Scenes/MapScene.unity
+    guid: 0333b21088ae2024e81ef5400252dacf
+  - enabled: 1
+    path: Assets/Road_Tripp/Scenes/InstructionsScene.unity
+    guid: b3e0a98b052fb06469dd40b258a28597
+  - enabled: 1
     path: Assets/Road_Tripp/Scenes/GameplayScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Road_Tripp/Scenes/MapScene.unity
-    guid: 0333b21088ae2024e81ef5400252dacf
+    path: Assets/Road_Tripp/Scenes/VictoryScene.unity
+    guid: 63d2cf8f8341056488f20c0e5948ec4d
   m_configObjects: {}

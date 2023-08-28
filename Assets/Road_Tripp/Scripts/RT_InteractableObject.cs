@@ -18,5 +18,11 @@ namespace RoadTripp
             }
             RT_OnClickEvent?.Invoke();
         }
+
+        public void AddTime(float time)
+        {
+            PlayerDataManager.AddTime(time);
+            BarkSingleton.BarkText("Time Added: " + time);
+        }
     }
 }
