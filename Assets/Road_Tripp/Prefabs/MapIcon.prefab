@@ -159,6 +159,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OptionalDebugMessage: Map Icon Clicked
 --- !u!114 &4366777421471481206
 MonoBehaviour:
   m_ObjectHideFlags: 0

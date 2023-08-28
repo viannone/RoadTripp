@@ -145,6 +145,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OptionalDebugMessage: Signpost Clicked
 --- !u!65 &7482102785492461069
 BoxCollider:
   m_ObjectHideFlags: 0

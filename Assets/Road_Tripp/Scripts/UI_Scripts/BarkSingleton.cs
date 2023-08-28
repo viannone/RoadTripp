@@ -18,15 +18,27 @@ namespace RoadTripp.Debugging
         public static Queue<string> messages = new Queue<string>();
         private static bool CurrentlyDisplayingMessages = false;
         private const string barkSingleton = "BarkSingleton";
-        private const float WaitTime = 3.5f;
-        private const float FadeTime = 1.0f;
+        public float DisplayTime = 3.5f;
+        public float FadeTime = 1.0f;
         void Awake()
         {
             //Try to get it on awake, no problem if it's not there
             if (!instance)
             {
-                instance = this;
+                Initialize(this);
             }
+            else if(instance != this)
+            {
+                //This means we got one carried over from another scene
+                Destroy(this.gameObject);
+            }
+        }
+
+        public static void Initialize(BarkSingleton singleton)
+        {
+            instance = singleton;
+            DontDestroyOnLoad(instance);
+            instance.Bark_Internal("Debug Message Will Appear Here");
         }
 
         /*
@@ -39,8 +51,8 @@ namespace RoadTripp.Debugging
             {
                 string messsage = messages.Dequeue();
                 text.SetText(messsage);
-                text.colorTransition(Color.white, 0.0f).JoinDelayTransition(WaitTime).colorTransition(Color.clear, FadeTime);
-                yield return new WaitForSeconds(WaitTime + FadeTime);
+                text.colorTransition(Color.white, 0.0f).JoinDelayTransition(DisplayTime).colorTransition(Color.clear, FadeTime);
+                yield return new WaitForSeconds(DisplayTime + FadeTime);
             }
             CurrentlyDisplayingMessages = false;
         }
@@ -59,6 +71,7 @@ namespace RoadTripp.Debugging
                     Debug.LogError("Couldn't Find Bark Singleton In Scene");
                     return;
                 }
+                Initialize(instance);
             }
             instance.Bark_Internal(str);
         }
